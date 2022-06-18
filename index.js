@@ -12,6 +12,6 @@ app.post('/message', async(req,res) => {
     await res.send(`<Response><Message>${games.jokenpo(user)}</Message></Response>`);
 });
 
-app.listen(3030, () => {
+app.listen(process.env.PORT || 3030, () => {
     console.log("Server is running on port 3030");
 })
