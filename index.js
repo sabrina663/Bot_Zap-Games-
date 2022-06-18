@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const twilio = require("twilio");
 const games = require('./games/games');
+const port = process.env.PORT || 3030;
 
 app.use(bodyParser.urlencoded({extended:false}));
 
@@ -12,6 +13,6 @@ app.post('/message', async(req,res) => {
     await res.send(`<Response><Message>${games.jokenpo(user)}</Message></Response>`);
 });
 
-app.listen(process.env.PORT || 3030, () => {
-    console.log("Server is running on port 3030");
-})
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
